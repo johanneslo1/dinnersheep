@@ -1,0 +1,39 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap');
+
+* {
+    font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+// Bootstrap
+@import 'bootstrap/bootstrap';
+
+
+.bg-gray {
+    background-color: #ececec;
+}
+.page-title {
+    font-weight: bold;
+}
+.card > .card-header {
+    background-color: #fff;
+    font-weight: 600 !important;
+}
+.table th, .table td {
+    padding: 1rem 1.5rem;
+}
+.table th {
+    border-top: none;
+}
+.table {
+    margin-bottom: 0;
+}
+label.control-label {
+    font-weight: bold !important;
+}
+.spinner-border {
+    vertical-align: middle !important;
+}
+input.has-error {
+    border: 1px solid $danger;
+}
