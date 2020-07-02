@@ -31,6 +31,7 @@
             {
                 this.$inertia.visit(`?search=${encodeURI(this.value)}`, {
                     preserveScroll: false,
+                    preserveState: true,
                 });
             }
         }
