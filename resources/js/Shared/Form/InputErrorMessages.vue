@@ -1,6 +1,6 @@
 <template>
     <small v-if="$page.errors && $page.errors[name]" :id="`${name}_error`" class="form-text text-muted">
-        <ul class="text-danger">
+        <ul class="input-error">
             <li v-for="error in $page.errors[name]">{{ error }}</li>
         </ul>
     </small>

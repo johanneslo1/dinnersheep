@@ -11,6 +11,33 @@
                         <AveragePerWeekday />
                     </div>
                 </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        Dein Lieblingsrestaurant
+                    </div>
+                    <div class="card-body">
+                        <p>Dein Lieblingsrestaurant ist derzeit Sultan.</p>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        Dein Lieblingsgericht
+                    </div>
+                    <div class="card-body">
+                        <p>Dein Lieblingsrestaurant ist derzeit Sultan.</p>
+                    </div>
+                </div>
+
+                <div class="card mt-3">
+                    <div class="card-header">
+                        Dein Lieblingsgericht
+                    </div>
+                    <div class="card-body">
+                        <p>Dein Lieblingsrestaurant ist derzeit Sultan.</p>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 <AddRestaurantVisit />

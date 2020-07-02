@@ -38,6 +38,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -93,6 +120,48 @@ var render = function() {
                   [_c("AveragePerWeekday")],
                   1
                 )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card mt-3" }, [
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v(
+                    "\n                    Dein Lieblingsrestaurant\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", [
+                    _vm._v("Dein Lieblingsrestaurant ist derzeit Sultan.")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card mt-3" }, [
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v(
+                    "\n                    Dein Lieblingsgericht\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", [
+                    _vm._v("Dein Lieblingsrestaurant ist derzeit Sultan.")
+                  ])
+                ])
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "card mt-3" }, [
+                _c("div", { staticClass: "card-header" }, [
+                  _vm._v(
+                    "\n                    Dein Lieblingsgericht\n                "
+                  )
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "card-body" }, [
+                  _c("p", [
+                    _vm._v("Dein Lieblingsrestaurant ist derzeit Sultan.")
+                  ])
+                ])
               ])
             ]),
             _vm._v(" "),

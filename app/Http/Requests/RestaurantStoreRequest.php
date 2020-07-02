@@ -25,9 +25,8 @@ class RestaurantStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|string|min:3',
-            'street' => 'required|string|min:3',
+            'street_address' => 'required|string|min:3',
             'city' => 'required|string|min:3',
-            'street_number' => 'required|string',
             'postal_code' => 'required|numeric',
         ];
     }

@@ -17,8 +17,7 @@ StoreRestaurantController extends Controller
         ]);
 
         $restaurant->address()->create([
-            'street' => $request->street,
-            'street_number' => $request->street_number,
+            'street_address' => $request->street_address,
             'city' => $request->city,
             'postal_code' => $request->postal_code
         ]);

@@ -15,9 +15,11 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "inertiajs/inertia-laravel": "^0.2.5",
+        "kyslik/column-sortable": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.1"
+        "laravel/ui": "^2.1",
+        "tucker-eric/eloquentfilter": "^2.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",

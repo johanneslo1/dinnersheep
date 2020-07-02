@@ -1,9 +1,13 @@
 <template>
     <PageLayout title="Restaurants">
         <template #action>
-            <inertia-link class="btn btn-primary" href="/restaurants/create">
-                <i class="mdi mdi-plus"></i> Restaurant erstellen
-            </inertia-link>
+           <div class="d-flex align-items-center">
+               <InertiaSearch />
+
+               <inertia-link class="btn btn-primary ml-3" href="/restaurants/create">
+                   <i class="mdi mdi-plus"></i> Restaurant erstellen
+               </inertia-link>
+           </div>
         </template>
         <template #body>
             <div class="col-md-12">
@@ -49,6 +53,7 @@
     import PageLayout from "../../Shared/Layouts/PageLayout";
     import InertiaPagination from "../../Shared/InertiaPagination";
     import ResponseMessage from "../../Shared/ResponseMessage";
+    import InertiaSearch from "../../Shared/InertiaSearch";
 
     export default {
         props: {
@@ -57,7 +62,8 @@
         components: {
             PageLayout,
             InertiaPagination,
-            ResponseMessage
+            ResponseMessage,
+            InertiaSearch
         },
         data() {
           return {
@@ -66,11 +72,42 @@
         },
         layout: Layout,
         methods: {
+            getResultValue(result) {
+                return result.name;
+            },
+            submit() {
 
+            },
+            search(input) {
+
+
+
+                const url = `/api/search/restaurants/${input}?limit=5`;
+
+                console.log(url);
+                if (input.length < 1) {
+                    return []
+                }
+
+                return new Promise(resolve => {
+                    if (input.length < 3) {
+                        return resolve([])
+                    }
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            resolve(data)
+                        })
+                })
+            }
         }
     }
 </script>
 
-<style scoped>
-
+<style>
+    .autocomplete-input {
+        padding: 0.375rem 0.75rem;
+        background-image: none;
+        border-radius: 0.25rem;
+    }
 </style>

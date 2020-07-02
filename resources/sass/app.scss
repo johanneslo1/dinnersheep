@@ -4,7 +4,6 @@
 * {
     font-family: 'Noto Sans JP', sans-serif !important;
 }
-
 // Bootstrap
 @import 'bootstrap/bootstrap';
 
@@ -12,28 +11,123 @@
 .bg-gray {
     background-color: #ececec;
 }
+
 .page-title {
     font-weight: bold;
 }
-.card > .card-header {
-    background-color: #fff;
-    font-weight: 600 !important;
+
+.card {
+    & .card-header {
+        background-color: #fff;
+        font-weight: 600 !important;
+    }
+
+    form & .card-body {
+        padding: 0;
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }
-.table th, .table td {
-    padding: 1rem 1.5rem;
-}
-.table th {
-    border-top: none;
-}
+
 .table {
     margin-bottom: 0;
+
+    & th, & td {
+        padding: 1rem 1.5rem;
+    }
+
+    th {
+        border-top: none;
+    }
 }
+
 label.control-label {
     font-weight: bold !important;
 }
+
 .spinner-border {
     vertical-align: middle !important;
 }
+
 input.has-error {
     border: 1px solid $danger;
+}
+
+.form-group {
+    margin: 0;
+
+    &.row {
+        //margin-bottom: 2rem;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+    }
+}
+
+.form-submit {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+}
+
+ul.input-error {
+    list-style: none;
+    padding-left: 0;
+    color: $danger;
+    margin-bottom: 0;
+}
+
+.navbar {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.navbar .nav-item {
+    font-weight: 500;
+
+    &.active {
+        font-weight: 600;
+    }
+}
+
+footer {
+    margin-top: 5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+    & p {
+        margin: 0;
+    }
+}
+
+.page-container {
+    padding-top: 5rem;
+}
+
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    footer {
+        & .brand {
+            float: left;
+        }
+        & .links {
+            float:right;
+        }
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+
 }

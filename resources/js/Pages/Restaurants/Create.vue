@@ -1,9 +1,9 @@
 <template>
     <PageLayout title="Restaurant erstellen">
         <template #action>
-            <inertia-link class="btn btn-default" href="/restaurants">
-                <i class="mdi mdi-arrow-left"></i> Zurück zur Übersicht
-            </inertia-link>
+<!--            <inertia-link class="btn btn-default" href="/restaurants">-->
+<!--                <i class="mdi mdi-arrow-left"></i> Zurück zur Übersicht-->
+<!--            </inertia-link>-->
         </template>
         <template #body>
             <div class="col-md-12">
@@ -19,24 +19,28 @@
                             </div>
                             <div class="form-group row">
                                 <label class="col-md-3 control-label" for="inputStreet">Straße & Hausnummer</label>
-                                <div class="col-md-7">
-                                    <InputWithErrorMessage :model-data="form.data" model-key="street" placeholder="Straße" type="text" />
-                                </div>
-                                <div class="col-md-2">
-                                    <InputWithErrorMessage :model-data="form.data" model-key="street_number" placeholder="Hausnummer" type="text" />
+                                <div class="col-md-9">
+                                    <InputWithErrorMessage :model-data="form.data" model-key="street_address" placeholder="Straße & Hausnummer" type="text" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-3 control-label" for="inputCity">Stadt & PLZ</label>
-                                <div class="col-md-7">
+                                <label class="col-md-3 control-label" for="inputCity">Stadt</label>
+                                <div class="col-md-9">
                                     <InputWithErrorMessage :model-data="form.data" model-key="city" placeholder="Stadt" type="text" />
                                 </div>
-                                <div class="col-md-2">
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-3 control-label" for="inputCity">PLZ</label>
+                                <div class="col-md-9">
                                     <InputWithErrorMessage :model-data="form.data" model-key="postal_code" placeholder="PLZ" type="text" />
                                 </div>
                             </div>
 
-                            <div class="form-group text-center">
+
+                            <div class="form-group form-submit text-center d-flex float-right">
+                                <inertia-link class="btn btn-default" href="/restaurants">
+                                    Abbrechen
+                                </inertia-link>
                                 <LoadingButton :isLoading="form.isLoading" type="submit" className="btn btn-primary"
                                                text="Hinzufügen">
                                     <i class="mdi mdi-plus"></i>
@@ -75,8 +79,7 @@
                 form: {
                     data: {
                         name: '',
-                        street: '',
-                        street_number: '',
+                        street_address: '',
                         city: '',
                         postal_code: '',
                     },

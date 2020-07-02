@@ -1,19 +1,21 @@
 <template>
-    <footer class="text-muted bg-white py-4">
+    <footer class=" bg-white py-4">
         <div class="container">
-            <p>Copyright Footer</p>
+            <p class="brand">
+                <b><span class="text-primary">dinner</span>.sheep</b> © 2020
+            </p>
+            <p class="links text-muted">
+                <a href="#" class="text-muted">Impressum</a> |
+                <a href="#" class="text-muted">Datenschutz</a>
+            </p>
         </div>
     </footer>
 </template>
 
 <script>
-    export default {
-        name: "Footer"
-    }
+    export default {}
 </script>
 
 <style scoped>
-    footer {
-      margin-top: 5rem;
-    }
+
 </style>

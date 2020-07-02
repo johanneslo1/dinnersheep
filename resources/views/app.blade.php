@@ -42,7 +42,7 @@
         </style>
 
     </head>
-    <body class="bg-gray">
+    <body>
         @inertia
     </body>
 
