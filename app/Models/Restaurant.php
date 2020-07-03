@@ -34,4 +34,9 @@ class Restaurant extends Model
         return $this->hasMany(Meal::class);
     }
 
+
+    public function visits()
+    {
+        return $this->hasMany(RestaurantVisit::class);
+    }
 }

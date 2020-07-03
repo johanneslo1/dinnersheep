@@ -1,6 +1,6 @@
 <template>
     <autocomplete :search="search" :get-result-value="resultValueCallback"
-                  @submit="submit"
+                  @submit="(result) => {submitCallback ? submitCallback(result) : submit(result)}"
     />
 </template>
 
@@ -16,18 +16,22 @@
                 type: String,
                 default: 'id',
             },
+            submitCallback: {
+                type: Function,
+                default: null,
+            }
+        },
+        mounted() {
         },
         methods: {
-            getResultValue(result) {
-                return result.name;
-            },
             submit(result) {
+                console.log("asdn");
                 // Autocomplete Eintrag wurde ausgewählt
                 // Feuere input event um v-model anzusprechen
                 this.$emit('input', result[this.primaryKey]);
             },
             search(input) {
-                const url = `/api/search/${this.model}/${input}?limit=5`;
+                let url = `/api/search/${this.model}/${input}?limit=5`;
 
                 if (input.length < 1) {
                     return []

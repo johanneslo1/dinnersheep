@@ -41,4 +41,9 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Meal::class);
     }
+
+    public function visits()
+    {
+        return $this->hasMany(RestaurantVisit::class);
+    }
 }

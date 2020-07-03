@@ -9,7 +9,7 @@ Vue.use(InertiaApp)
 Vue.use(Autocomplete)
 
 Vue.component('pagination', require('laravel-vue-pagination'));
-
+Vue.use(require('vue-moment'));
 
 const app = document.getElementById('app')
 

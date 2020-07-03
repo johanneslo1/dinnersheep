@@ -13,8 +13,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_AddRecordCards_AddRestaurantVisit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Shared/AddRecordCards/AddRestaurantVisit */ "./resources/js/Shared/AddRecordCards/AddRestaurantVisit.vue");
 /* harmony import */ var _Shared_AddRecordCards_AddFavouriteMeal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Shared/AddRecordCards/AddFavouriteMeal */ "./resources/js/Shared/AddRecordCards/AddFavouriteMeal.vue");
 /* harmony import */ var _Shared_AddRecordCards_AddVisitorGroup__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Shared/AddRecordCards/AddVisitorGroup */ "./resources/js/Shared/AddRecordCards/AddVisitorGroup.vue");
-/* harmony import */ var _Shared_Charts_AveragePerWeekday__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Shared/Charts/AveragePerWeekday */ "./resources/js/Shared/Charts/AveragePerWeekday.vue");
-/* harmony import */ var _Shared_Layouts_PageLayout__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Shared/Layouts/PageLayout */ "./resources/js/Shared/Layouts/PageLayout.vue");
+/* harmony import */ var _Shared_Layouts_PageLayout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Shared/Layouts/PageLayout */ "./resources/js/Shared/Layouts/PageLayout.vue");
+/* harmony import */ var _Shared_Charts_VisitsPerWeekday__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../Shared/Charts/VisitsPerWeekday */ "./resources/js/Shared/Charts/VisitsPerWeekday.vue");
 //
 //
 //
@@ -72,13 +72,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: {
+    visitsPerWeekday: null
+  },
   layout: _Shared_Layouts_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
   components: {
     AddRestaurantVisit: _Shared_AddRecordCards_AddRestaurantVisit__WEBPACK_IMPORTED_MODULE_1__["default"],
     AddFavouriteMeal: _Shared_AddRecordCards_AddFavouriteMeal__WEBPACK_IMPORTED_MODULE_2__["default"],
     AddVisitorGroup: _Shared_AddRecordCards_AddVisitorGroup__WEBPACK_IMPORTED_MODULE_3__["default"],
-    AveragePerWeekday: _Shared_Charts_AveragePerWeekday__WEBPACK_IMPORTED_MODULE_4__["default"],
-    PageLayout: _Shared_Layouts_PageLayout__WEBPACK_IMPORTED_MODULE_5__["default"]
+    VisitsPerWeekday: _Shared_Charts_VisitsPerWeekday__WEBPACK_IMPORTED_MODULE_5__["default"],
+    PageLayout: _Shared_Layouts_PageLayout__WEBPACK_IMPORTED_MODULE_4__["default"]
   }
 });
 
@@ -117,7 +120,11 @@ var render = function() {
                 _c(
                   "div",
                   { staticClass: "card-body" },
-                  [_c("AveragePerWeekday")],
+                  [
+                    _c("VisitsPerWeekday", {
+                      attrs: { visitsPerWeekday: _vm.visitsPerWeekday }
+                    })
+                  ],
                   1
                 )
               ]),

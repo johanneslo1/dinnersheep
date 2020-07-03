@@ -31,6 +31,6 @@ final class StoreMealController extends Controller
             ]);
         }
 
-        return back()->with('success', 'Das Gericht wurde erstellt.');
+        return redirect(route('meals.index'))->with('success', 'Das Gericht wurde erstellt.');
     }
 }

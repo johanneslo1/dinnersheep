@@ -1,52 +1,68 @@
 <template>
-    <PageLayout title="Restaurants">
+    <PageLayout title="Meine besuchten Restaurants">
         <template #action>
-           <div class="d-flex align-items-center">
-               <InertiaSearch />
+            <div class="d-flex align-items-center">
+                <InertiaSearch/>
 
-               <inertia-link class="btn btn-primary ml-3" href="/restaurants/create">
-                   <i class="mdi mdi-plus"></i> Restaurant erstellen
-               </inertia-link>
-           </div>
+                <inertia-link class="btn btn-primary ml-3" href="/restaurants/create">
+                    <i class="mdi mdi-plus"></i> Restaurant erstellen
+                </inertia-link>
+
+                <FilterToggleButton :sort-filter="sortFilter"/>
+            </div>
         </template>
         <template #body>
             <div class="col-md-12">
-                <ResponseMessage />
+                <ResponseMessage/>
                 <div class="card">
                     <div class="card-body p-0">
-                        <table class="table border-top-0">
-                            <thead>
-                            <tr>
-                                <th>
-                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="name" filter-name="name" placeholder="Name" input-type="text"   />
-                                </th>
-                                <th>
-                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="favorite_meal" filter-name="favorite_meal" placeholder="Lieblingsgericht" input-type="text"   />
-                                </th>
-                                <th>
-                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="visits" filter-name="visits" placeholder="Besuche" input-type="text"   />
-                                </th>
-                                <th>Aktionen</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr v-for="restaurant in restaurantsPagination.data">
-                                <td>
-                                    {{ restaurant.name }}
-                                </td>
-                                <td>
-                                    {{ restaurant.favorite_meal ? restaurant.favorite_meal.name : '' }}
-                                </td>
-                                <td>
-                                    {{ restaurant.visits }}
-                                </td>
-                                <td>
+                        <div v-if="restaurantsPagination.data.length > 0">
+                            <table class="table border-top-0">
+                                <thead>
+                                <tr>
+                                    <th>
+                                        <InertiaSortFilter :sortFilter="sortFilter" sort-name="name" filter-name="name"
+                                                           placeholder="Name" input-type="text"/>
+                                    </th>
+                                    <th>
+                                        <InertiaSortFilter :sortFilter="sortFilter" sort-name="favorite_meal"
+                                                           filter-name="favorite_meal" placeholder="Lieblingsgericht"
+                                                           input-type="text"/>
+                                    </th>
+                                    <th>
+                                        <InertiaSortFilter :sortFilter="sortFilter" sort-name="visits"
+                                                           filter-name="visits" placeholder="Besuche"
+                                                           input-type="text"/>
+                                    </th>
+                                    <th>Aktionen</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr v-for="restaurant in restaurantsPagination.data">
+                                    <td>
+                                        <inertia-link :href="`/restaurants/${restaurant.id}`">
+                                            {{ restaurant.name }}
+                                        </inertia-link>
+                                    </td>
+                                    <td>
+                                        <inertia-link v-if="restaurant.favorite_meal"
+                                                      :href="`/restaurants/${restaurant.id}/meals/${restaurant.favorite_meal.id}`">
+                                            {{ restaurant.favorite_meal.name }}
+                                        </inertia-link>
+                                    </td>
+                                    <td>
+                                        {{ restaurant.visits }}
+                                    </td>
+                                    <td>
 
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <InertiaPagination :data="restaurantsPagination"></InertiaPagination>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <InertiaPagination :data="restaurantsPagination"></InertiaPagination>
+                        </div>
+                        <p v-else class="text-center my-3">Es wurden keine Datensätze gefunden!</p>
+
                     </div>
                 </div>
             </div>
@@ -61,6 +77,7 @@
     import ResponseMessage from "../../Shared/ResponseMessage";
     import InertiaSearch from "../../Shared/InertiaSearch";
     import InertiaSortFilter from "../../Shared/InertiaSortFilter";
+    import FilterToggleButton from "../../Shared/Table/FilterToggleButton";
 
     export default {
         props: {
@@ -71,28 +88,25 @@
             InertiaPagination,
             ResponseMessage,
             InertiaSearch,
-            InertiaSortFilter
+            InertiaSortFilter,
+            FilterToggleButton
         },
         data() {
-          return {
-              sortFilter: {
-                  filters: {
-                      name: '',
-                  },
-                  sort: {
-                      attribute: 'id',
-                      direction: 'asc'
-                  }
-              }
-          }
+            return {
+                sortFilter: {
+                    showFilters: false,
+                    filters: {
+                        name: '',
+                    },
+                    sort: {
+                        attribute: 'id',
+                        direction: 'asc'
+                    }
+                }
+            }
         },
         layout: Layout,
-        methods: {
-
-            submit() {
-
-            },
-        }
+        methods: {}
     }
 </script>
 

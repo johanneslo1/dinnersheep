@@ -18,13 +18,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-3 control-label" for="inputStreet">Straße & Hausnummer</label>
+                                <label class="col-md-3 control-label" for="input_street_address">Straße & Hausnummer</label>
                                 <div class="col-md-9">
                                     <InputWithErrorMessage :model-data="form.data" model-key="street_address" placeholder="Straße & Hausnummer" type="text" />
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-3 control-label" for="inputCity">Stadt</label>
+                                <label class="col-md-3 control-label" for="input_city">Stadt</label>
                                 <div class="col-md-9">
                                     <InputWithErrorMessage :model-data="form.data" model-key="city" placeholder="Stadt" type="text" />
                                 </div>

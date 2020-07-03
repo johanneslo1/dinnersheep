@@ -170,15 +170,18 @@ __webpack_require__.r(__webpack_exports__);
     primaryKey: {
       type: String,
       "default": 'id'
+    },
+    submitCallback: {
+      type: Function,
+      "default": null
     }
   },
+  mounted: function mounted() {},
   methods: {
-    getResultValue: function getResultValue(result) {
-      return result.name;
-    },
     submit: function submit(result) {
-      // Autocomplete Eintrag wurde ausgewählt
+      console.log("asdn"); // Autocomplete Eintrag wurde ausgewählt
       // Feuere input event um v-model anzusprechen
+
       this.$emit('input', result[this.primaryKey]);
     },
     search: function search(input) {
@@ -566,7 +569,11 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("autocomplete", {
     attrs: { search: _vm.search, "get-result-value": _vm.resultValueCallback },
-    on: { submit: _vm.submit }
+    on: {
+      submit: function(result) {
+        _vm.submitCallback ? _vm.submitCallback(result) : _vm.submit(result)
+      }
+    }
   })
 }
 var staticRenderFns = []

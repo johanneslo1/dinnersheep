@@ -10965,6 +10965,10 @@ form .card .card-body {
   border-top: none;
 }
 
+.table a {
+  color: #000;
+}
+
 label.control-label {
   font-weight: bold !important;
 }

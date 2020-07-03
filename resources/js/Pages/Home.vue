@@ -8,7 +8,7 @@
                         Deine Statistik
                     </div>
                     <div class="card-body">
-                        <AveragePerWeekday />
+                        <VisitsPerWeekday :visitsPerWeekday="visitsPerWeekday" />
                     </div>
                 </div>
 
@@ -53,16 +53,19 @@
     import AddRestaurantVisit from "../Shared/AddRecordCards/AddRestaurantVisit";
     import AddFavouriteMeal from "../Shared/AddRecordCards/AddFavouriteMeal";
     import AddVisitorGroup from "../Shared/AddRecordCards/AddVisitorGroup";
-    import AveragePerWeekday from "../Shared/Charts/AveragePerWeekday";
     import PageLayout from "../Shared/Layouts/PageLayout";
+    import VisitsPerWeekday from "../Shared/Charts/VisitsPerWeekday";
 
     export default {
+        props: {
+            visitsPerWeekday: null
+        },
         layout: Layout,
         components: {
             AddRestaurantVisit,
             AddFavouriteMeal,
             AddVisitorGroup,
-            AveragePerWeekday,
+            VisitsPerWeekday,
             PageLayout
         }
     }

@@ -1,32 +1,52 @@
 <template>
     <div>
 
-
-        <div
-            :class="`input-group ${(sortFilter.filters[filterName] && sortFilter.filters[filterName] !== '' && sortFilter.filters[filterName] !== '0') || sortFilter.sort.attribute === sortName ? 'active' : ''}`">
-
-            <select v-if="inputType === 'select'" v-model="sortFilter.filters[filterName]" @change="filter"
-                    class="form-control">
-                <option value="0">{{ placeholder }} (Platzhalter)</option>
-                <slot></slot>
-            </select>
+        <template v-if="sortFilter.showFilters">
+            <!-- Wenn Filter angezeigt werden sollen. -->
+            <div
+                :class="`input-group`">
 
 
-            <input v-if="inputType === 'text'" v-model="sortFilter.filters[filterName]" :placeholder="placeholder"
-                   @change="filter"
-                   class="form-control" aria-describedby="basic-addon1">
+                <select v-if="inputType === 'select'" v-model="sortFilter.filters[filterName]" @change="filter"
+                        class="form-control custom-select">
+                    <option value="0">{{ placeholder }}</option>
+                    <slot></slot>
+                </select>
 
-            <span @click="sort" class="input-group-prepend">
+
+                <input v-if="inputType === 'text'" v-model="sortFilter.filters[filterName]" :placeholder="placeholder"
+                       @change="filter"
+                       class="form-control" aria-describedby="basic-addon1">
+
+                <span @click="sort" class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">
-                    <template v-if="sortFilter.sort.attribute === sortName">
-                        <i v-if="sortFilter.sort.direction === 'asc'" class="mdi mdi-sort-ascending" aria-hidden="true"></i>
+  <template v-if="sortFilter.sort.attribute === sortName">
+                        <i v-if="sortFilter.sort.direction === 'asc'" class="mdi mdi-sort-ascending"
+                           aria-hidden="true"></i>
                         <i v-if="sortFilter.sort.direction === 'desc'" class="mdi mdi-sort-descending"
                            aria-hidden="true"></i>
                     </template>
                 <i v-else class="mdi mdi-sort" aria-hidden="true"></i>
                 </span>
             </span>
-        </div>
+            </div>
+        </template>
+
+
+        <template v-else>
+            <!-- Wenn Filter nicht angezeigt werden sollen. -->
+           <div @click="sort">
+               {{ placeholder }}
+               <template v-if="sortFilter.sort.attribute === sortName">
+                   <i v-if="sortFilter.sort.direction === 'asc'" class="mdi mdi-sort-ascending"
+                      aria-hidden="true"></i>
+                   <i v-if="sortFilter.sort.direction === 'desc'" class="mdi mdi-sort-descending"
+                      aria-hidden="true"></i>
+               </template>
+               <i v-else class="mdi mdi-sort" aria-hidden="true"></i>
+           </div>
+
+        </template>
 
 
     </div>
@@ -90,7 +110,9 @@
         border: none;
     }
 
-    .input-group.active input, select {
-        border-width: 2px;
+    input, span.input-group-text {
+        border: none;
+        background-color: transparent;
     }
+
 </style>

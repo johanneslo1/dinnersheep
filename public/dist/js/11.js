@@ -299,7 +299,7 @@ var render = function() {
                             "label",
                             {
                               staticClass: "col-md-3 control-label",
-                              attrs: { for: "inputStreet" }
+                              attrs: { for: "input_street_address" }
                             },
                             [_vm._v("Straße & Hausnummer")]
                           ),
@@ -326,7 +326,7 @@ var render = function() {
                             "label",
                             {
                               staticClass: "col-md-3 control-label",
-                              attrs: { for: "inputCity" }
+                              attrs: { for: "input_city" }
                             },
                             [_vm._v("Stadt")]
                           ),

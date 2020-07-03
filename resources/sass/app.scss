@@ -4,8 +4,10 @@
 * {
     font-family: 'Noto Sans JP', sans-serif !important;
 }
+
 // Bootstrap
 @import 'bootstrap/bootstrap';
+
 
 
 .bg-gray {
@@ -39,6 +41,10 @@
     th {
         border-top: none;
     }
+
+    & a {
+        color: #000;
+    }
 }
 
 label.control-label {
@@ -58,7 +64,7 @@ input.has-error {
 
     &.row {
         //margin-bottom: 2rem;
-        border-bottom: 1px solid rgba(0,0,0,0.05);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         padding-bottom: 2rem;
         padding-top: 2rem;
     }
@@ -120,15 +126,15 @@ footer {
         & .brand {
             float: left;
         }
+
         & .links {
-            float:right;
+            float: right;
         }
     }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
 
 
 }

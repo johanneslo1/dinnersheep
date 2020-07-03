@@ -15,7 +15,7 @@
     import AddRestaurantVisit from "../AddRecordCards/AddRestaurantVisit";
     import AddFavouriteMeal from "../AddRecordCards/AddFavouriteMeal";
     import AddVisitorGroup from "../AddRecordCards/AddVisitorGroup";
-    import AveragePerWeekday from "../Charts/AveragePerWeekday";
+    import AveragePerWeekday from "../Charts/VisitsPerWeekday";
 
     export default {
         props: {

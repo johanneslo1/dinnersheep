@@ -4,10 +4,10 @@
             Warst du gerade etwas essen gehen? Wir hoffen, es hat dir geschmeckt!
         </template>
         <template #link>
-            <a href="#" class="btn btn-primary">
+            <inertia-link href="/visits/create" class="btn btn-primary">
                 <i class="mdi mdi-plus"></i>
                 Besuch eintragen
-            </a>
+            </inertia-link>
         </template>
     </Card>
 </template>

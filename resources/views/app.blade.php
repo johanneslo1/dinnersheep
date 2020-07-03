@@ -9,6 +9,11 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <script>
+            window.googleMapsApiKey = '{{ config('services.google_maps.api_key') }}'
+        </script>
+
+
         <!-- Styles -->
         <link href="{{ mix('/dist/css/app.css') }}" rel="stylesheet" />
         <script src="{{ mix('/dist/js/app.js') }}" defer></script>
@@ -46,9 +51,6 @@
         @inertia
     </body>
 
-    <script>
-        window.googleMapsApiKey = '{{ config('services.google_maps.api_key') }}'
-    </script>
 
     <script src="{{ mix('/dist/js/libs.js') }}" defer></script>
 </html>
