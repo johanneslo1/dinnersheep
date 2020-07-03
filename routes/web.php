@@ -13,6 +13,7 @@ use App\Http\Controllers\Restaurant\ShowRestaurantController;
 use App\Http\Controllers\Restaurant\StoreRestaurantController;
 use App\Http\Controllers\Restaurant\UpdateRestaurantController;
 use App\Http\Controllers\RestaurantVisit\CreateRestaurantVisitController;
+use App\Http\Controllers\RestaurantVisit\StoreRestaurantVisitController;
 use App\Http\Controllers\ShowHomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -39,7 +40,7 @@ Route::middleware(['throttle', 'auth'])
             ->group(function () {
                 Route::get('', IndexRestaurantsController::class)->name('index');
                 Route::get('create', CreateRestaurantController::class);
-                Route::get('{restaurant}', ShowRestaurantController::class);
+                Route::get('{restaurant}', ShowRestaurantController::class)->name('show');
                 Route::get('{restaurant}/edit', EditRestaurantController::class);
                 Route::post('', StoreRestaurantController::class);
                 Route::patch('{restaurant}', UpdateRestaurantController::class);
@@ -54,7 +55,7 @@ Route::middleware(['throttle', 'auth'])
                 Route::get('', IndexRestaurantsController::class)->name('index');
                 Route::get('create', CreateRestaurantVisitController::class);
                 Route::get('{restaurantVisit}/edit', EditRestaurantController::class);
-                Route::post('', StoreRestaurantController::class);
+                Route::post('', StoreRestaurantVisitController::class);
                 Route::patch('{restaurantVisit}', UpdateRestaurantController::class);
 
             });

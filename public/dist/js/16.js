@@ -14,6 +14,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Shared_InertiaSortFilter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Shared/InertiaSortFilter */ "./resources/js/Shared/InertiaSortFilter.vue");
 /* harmony import */ var _Shared_Table_FilterToggleButton__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Shared/Table/FilterToggleButton */ "./resources/js/Shared/Table/FilterToggleButton.vue");
 /* harmony import */ var _Shared_InertiaPagination__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Shared/InertiaPagination */ "./resources/js/Shared/InertiaPagination.vue");
+/* harmony import */ var _Shared_ResponseMessage__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../Shared/ResponseMessage */ "./resources/js/Shared/ResponseMessage.vue");
 //
 //
 //
@@ -112,6 +113,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+
 
 
 
@@ -127,7 +133,8 @@ __webpack_require__.r(__webpack_exports__);
     PageLayout: _Shared_Layouts_PageLayout__WEBPACK_IMPORTED_MODULE_1__["default"],
     InertiaSortFilter: _Shared_InertiaSortFilter__WEBPACK_IMPORTED_MODULE_2__["default"],
     FilterToggleButton: _Shared_Table_FilterToggleButton__WEBPACK_IMPORTED_MODULE_3__["default"],
-    InertiaPagination: _Shared_InertiaPagination__WEBPACK_IMPORTED_MODULE_4__["default"]
+    InertiaPagination: _Shared_InertiaPagination__WEBPACK_IMPORTED_MODULE_4__["default"],
+    ResponseMessage: _Shared_ResponseMessage__WEBPACK_IMPORTED_MODULE_5__["default"]
   },
   data: function data() {
     return {
@@ -175,6 +182,8 @@ var render = function() {
         key: "body",
         fn: function() {
           return [
+            _c("div", { staticClass: "col-md-12" }, [_c("ResponseMessage")], 1),
+            _vm._v(" "),
             _c("div", { staticClass: "col-md-7" }, [
               _c("div", { staticClass: "card" }, [
                 _c(

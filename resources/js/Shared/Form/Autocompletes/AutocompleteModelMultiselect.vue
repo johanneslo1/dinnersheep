@@ -2,7 +2,7 @@
     <div>
         <AutocompleteModelSearch  id="restaurant_id"
                                  :model="model" primary-key="id" :submit-callback="submit"
-                                 :resultValueCallback="resultValueCallback"/>
+                                 :resultValueCallback="resultValueCallback" :disabled="disabled"/>
 
 
         <p v-if="autocomplete_message" class="mt-2 mb-2 text-danger">{{ autocomplete_message }}</p>
@@ -39,6 +39,10 @@
                 default: 'id',
             },
             value: Array,
+            disabled: {
+                default: false,
+                type: Boolean,
+            }
         },
         components: {
             AutocompleteModelSearch,

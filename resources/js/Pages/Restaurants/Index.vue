@@ -1,5 +1,5 @@
 <template>
-    <PageLayout title="Meine besuchten Restaurants">
+    <PageLayout title="Meine Restaurants">
         <template #action>
             <div class="d-flex align-items-center">
                 <InertiaSearch/>

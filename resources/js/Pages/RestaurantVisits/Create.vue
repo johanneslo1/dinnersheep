@@ -13,6 +13,9 @@
                                     <AutocompleteModelSearch v-model="form.data.restaurant_id" id="restaurant_id"
                                                              model="restaurants" primary-key="id"
                                                              :resultValueCallback="(res) => `${res.name} - ${res.address ? res.address.city : ''}`"/>
+                                    <small v-if="!form.data.restaurant_id" class="form-text text-muted">
+                                        Hast du noch kein Restaurant hinzugefügt? <inertia-link :href="`/restaurant/create`">Dann trag sie hier ein!</inertia-link>
+                                    </small>
                                 </div>
                             </div>
 
@@ -28,7 +31,7 @@
                             <div class="form-group row">
                                 <label class="col-md-3 control-label" for="meals">Verzehrte Gerichte</label>
                                 <div class="col-md-9">
-                                    <AutocompleteModelMultiselect v-model="form.data.meals" id="meals"
+                                    <AutocompleteModelMultiselect v-model="form.data.meals" id="meals" :disabled="!form.data.restaurant_id"
                                                              :model="`restaurants/${form.data.restaurant_id}/meals`" primary-key="id"
                                                                   :resultValueCallback="(res) => `${res.name} für ${res.price_formated}`">
                                         <template v-if="total > 0" #table_end>
@@ -38,6 +41,9 @@
                                             </tr>
                                         </template>
                                     </AutocompleteModelMultiselect>
+                                    <small v-if="form.data.restaurant_id && total <= 0" class="form-text text-muted">
+                                        Hast du noch keine Gerichte hinzugefügt? <inertia-link :href="`/meals/create?restaurant=${form.data.restaurant_id}`">Dann trag sie hier ein!</inertia-link>
+                                    </small>
                                 </div>
                             </div>
 
@@ -95,7 +101,7 @@
             return {
                 form: {
                     data: {
-                        visit_date: '',
+                        visit_date: this.$moment().format('YYYY-MM-DDTHH:mm:ss'),
                         meals: [],
                         restaurant_id: this.restaurant ? this.restaurant.id : '',
                     },

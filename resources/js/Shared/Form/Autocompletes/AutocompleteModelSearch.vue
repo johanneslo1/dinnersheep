@@ -1,5 +1,5 @@
 <template>
-    <autocomplete :search="search" :get-result-value="resultValueCallback"
+    <autocomplete :search="search" :get-result-value="resultValueCallback" :disabled="disabled"
                   @submit="(result) => {submitCallback ? submitCallback(result) : submit(result)}"
     />
 </template>
@@ -19,6 +19,10 @@
             submitCallback: {
                 type: Function,
                 default: null,
+            },
+            disabled: {
+                default: false,
+                type: Boolean,
             }
         },
         mounted() {

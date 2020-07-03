@@ -2,6 +2,10 @@
     <PageLayout :title="`${restaurant.name}`">
         <template #body>
 
+            <div class="col-md-12">
+                <ResponseMessage />
+            </div>
+
             <div class="col-md-7">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
@@ -103,6 +107,7 @@
     import InertiaSortFilter from "../../Shared/InertiaSortFilter";
     import FilterToggleButton from "../../Shared/Table/FilterToggleButton";
     import InertiaPagination from "../../Shared/InertiaPagination";
+    import ResponseMessage from "../../Shared/ResponseMessage";
 
     export default {
         props: {
@@ -114,7 +119,8 @@
             PageLayout,
             InertiaSortFilter,
             FilterToggleButton,
-            InertiaPagination
+            InertiaPagination,
+            ResponseMessage
         },
         data() {
             return {

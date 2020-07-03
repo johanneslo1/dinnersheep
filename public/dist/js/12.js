@@ -88,6 +88,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -113,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       form: {
         data: {
-          visit_date: '',
+          visit_date: this.$moment().format('YYYY-MM-DDTHH:mm:ss'),
           meals: [],
           restaurant_id: this.restaurant ? this.restaurant.id : ''
         },
@@ -193,7 +199,11 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       "default": 'id'
     },
-    value: Array
+    value: Array,
+    disabled: {
+      "default": false,
+      type: Boolean
+    }
   },
   components: {
     AutocompleteModelSearch: _AutocompleteModelSearch__WEBPACK_IMPORTED_MODULE_0__["default"]
@@ -259,6 +269,10 @@ __webpack_require__.r(__webpack_exports__);
     submitCallback: {
       type: Function,
       "default": null
+    },
+    disabled: {
+      "default": false,
+      type: Boolean
     }
   },
   mounted: function mounted() {},
@@ -422,7 +436,29 @@ var render = function() {
                                       },
                                       expression: "form.data.restaurant_id"
                                     }
-                                  })
+                                  }),
+                                  _vm._v(" "),
+                                  !_vm.form.data.restaurant_id
+                                    ? _c(
+                                        "small",
+                                        { staticClass: "form-text text-muted" },
+                                        [
+                                          _vm._v(
+                                            "\n                                    Hast du noch kein Restaurant hinzugefügt? "
+                                          ),
+                                          _c(
+                                            "inertia-link",
+                                            {
+                                              attrs: {
+                                                href: "/restaurant/create"
+                                              }
+                                            },
+                                            [_vm._v("Dann trag sie hier ein!")]
+                                          )
+                                        ],
+                                        1
+                                      )
+                                    : _vm._e()
                                 ],
                                 1
                               )
@@ -467,6 +503,7 @@ var render = function() {
                               _c("AutocompleteModelMultiselect", {
                                 attrs: {
                                   id: "meals",
+                                  disabled: !_vm.form.data.restaurant_id,
                                   model:
                                     "restaurants/" +
                                     _vm.form.data.restaurant_id +
@@ -478,25 +515,35 @@ var render = function() {
                                     )
                                   }
                                 },
-                                scopedSlots: _vm._u([
-                                  {
-                                    key: "table_end",
-                                    fn: function() {
-                                      return [
-                                        _c("tr", [
-                                          _c("td", [_vm._v("Insgesamt:")]),
-                                          _vm._v(" "),
-                                          _c("td", [
-                                            _vm._v(
-                                              _vm._s(_vm._f("money")(_vm.total))
-                                            )
-                                          ])
-                                        ])
-                                      ]
-                                    },
-                                    proxy: true
-                                  }
-                                ]),
+                                scopedSlots: _vm._u(
+                                  [
+                                    _vm.total > 0
+                                      ? {
+                                          key: "table_end",
+                                          fn: function() {
+                                            return [
+                                              _c("tr", [
+                                                _c("td", [
+                                                  _vm._v("Insgesamt:")
+                                                ]),
+                                                _vm._v(" "),
+                                                _c("td", [
+                                                  _vm._v(
+                                                    _vm._s(
+                                                      _vm._f("money")(_vm.total)
+                                                    )
+                                                  )
+                                                ])
+                                              ])
+                                            ]
+                                          },
+                                          proxy: true
+                                        }
+                                      : null
+                                  ],
+                                  null,
+                                  true
+                                ),
                                 model: {
                                   value: _vm.form.data.meals,
                                   callback: function($$v) {
@@ -504,7 +551,31 @@ var render = function() {
                                   },
                                   expression: "form.data.meals"
                                 }
-                              })
+                              }),
+                              _vm._v(" "),
+                              _vm.form.data.restaurant_id && _vm.total <= 0
+                                ? _c(
+                                    "small",
+                                    { staticClass: "form-text text-muted" },
+                                    [
+                                      _vm._v(
+                                        "\n                                    Hast du noch keine Gerichte hinzugefügt? "
+                                      ),
+                                      _c(
+                                        "inertia-link",
+                                        {
+                                          attrs: {
+                                            href:
+                                              "/meals/create?restaurant=" +
+                                              _vm.form.data.restaurant_id
+                                          }
+                                        },
+                                        [_vm._v("Dann trag sie hier ein!")]
+                                      )
+                                    ],
+                                    1
+                                  )
+                                : _vm._e()
                             ],
                             1
                           )
@@ -616,7 +687,8 @@ var render = function() {
           model: _vm.model,
           "primary-key": "id",
           "submit-callback": _vm.submit,
-          resultValueCallback: _vm.resultValueCallback
+          resultValueCallback: _vm.resultValueCallback,
+          disabled: _vm.disabled
         }
       }),
       _vm._v(" "),
@@ -685,7 +757,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("autocomplete", {
-    attrs: { search: _vm.search, "get-result-value": _vm.resultValueCallback },
+    attrs: {
+      search: _vm.search,
+      "get-result-value": _vm.resultValueCallback,
+      disabled: _vm.disabled
+    },
     on: {
       submit: function(result) {
         _vm.submitCallback ? _vm.submitCallback(result) : _vm.submit(result)

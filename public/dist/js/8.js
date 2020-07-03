@@ -174,6 +174,10 @@ __webpack_require__.r(__webpack_exports__);
     submitCallback: {
       type: Function,
       "default": null
+    },
+    disabled: {
+      "default": false,
+      type: Boolean
     }
   },
   mounted: function mounted() {},
@@ -568,7 +572,11 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("autocomplete", {
-    attrs: { search: _vm.search, "get-result-value": _vm.resultValueCallback },
+    attrs: {
+      search: _vm.search,
+      "get-result-value": _vm.resultValueCallback,
+      disabled: _vm.disabled
+    },
     on: {
       submit: function(result) {
         _vm.submitCallback ? _vm.submitCallback(result) : _vm.submit(result)
