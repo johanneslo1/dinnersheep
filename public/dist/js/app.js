@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "dist/js/" + ({"vendors~canvg":"vendors~canvg","vendors~pdfmake":"vendors~pdfmake","vendors~xlsx":"vendors~xlsx","xlsx":"xlsx"}[chunkId]||chunkId) + ".js?id=" + {"0":"f8fbf754c0179f2595a4","1":"e93c08dc9f4530b14b07","2":"b7ee04dbcb4797a114b1","3":"60b82e18c4ea652f6ed3","4":"536408e849bacb362565","5":"30508dcc58f3008467b4","6":"aad4c1c089e8cd35e981","7":"1a15ac1375a3642ff6dd","vendors~canvg":"99d56724a9ac28d924fd","vendors~pdfmake":"460a83d2d3832e6ac376","vendors~xlsx":"d811c31b45a95dacd539","xlsx":"d60bcc49d9ee1c23de25"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "dist/js/" + ({"vendors~canvg":"vendors~canvg","vendors~pdfmake":"vendors~pdfmake","vendors~xlsx":"vendors~xlsx","xlsx":"xlsx"}[chunkId]||chunkId) + ".js?id=" + {"0":"f8fbf754c0179f2595a4","1":"b5fe979af341434a6920","2":"b7ee04dbcb4797a114b1","3":"e96e9195e9a85ca27547","4":"09ed6f95a92be83fbad3","5":"125e44c3ce658de1cb9f","6":"eca186999602447aca73","7":"1a15ac1375a3642ff6dd","vendors~canvg":"99d56724a9ac28d924fd","vendors~pdfmake":"460a83d2d3832e6ac376","vendors~xlsx":"d811c31b45a95dacd539","xlsx":"d60bcc49d9ee1c23de25"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -48525,63 +48525,63 @@ module.exports = function(module) {
 var map = {
 	"./Auth/Login": [
 		"./resources/js/Pages/Auth/Login.vue",
-		4
+		5
 	],
 	"./Auth/Login.vue": [
 		"./resources/js/Pages/Auth/Login.vue",
-		4
+		5
 	],
 	"./Home": [
 		"./resources/js/Pages/Home.vue",
-		5,
+		1,
 		0,
 		2,
 		7
 	],
 	"./Home.vue": [
 		"./resources/js/Pages/Home.vue",
-		5,
+		1,
 		0,
 		2,
 		7
 	],
 	"./Restaurants/Create": [
 		"./resources/js/Pages/Restaurants/Create.vue",
-		5,
+		1,
 		0,
 		2,
-		6
+		3
 	],
 	"./Restaurants/Create.vue": [
 		"./resources/js/Pages/Restaurants/Create.vue",
-		5,
+		1,
 		0,
 		2,
-		6
+		3
 	],
 	"./Restaurants/Index": [
 		"./resources/js/Pages/Restaurants/Index.vue",
-		5,
+		1,
 		0,
 		2,
-		3
+		4
 	],
 	"./Restaurants/Index.vue": [
 		"./resources/js/Pages/Restaurants/Index.vue",
-		5,
+		1,
 		0,
 		2,
-		3
+		4
 	],
 	"./Users/Edit": [
 		"./resources/js/Pages/Users/Edit.vue",
 		0,
-		1
+		6
 	],
 	"./Users/Edit.vue": [
 		"./resources/js/Pages/Users/Edit.vue",
 		0,
-		1
+		6
 	]
 };
 function webpackAsyncContext(req) {

@@ -17,9 +17,15 @@
                         <table class="table border-top-0">
                             <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Lieblingsgericht</th>
-                                <th>Besuche</th>
+                                <th>
+                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="name" filter-name="name" placeholder="Name" input-type="text"   />
+                                </th>
+                                <th>
+                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="favorite_meal" filter-name="favorite_meal" placeholder="Lieblingsgericht" input-type="text"   />
+                                </th>
+                                <th>
+                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="visits" filter-name="visits" placeholder="Besuche" input-type="text"   />
+                                </th>
                                 <th>Aktionen</th>
                             </tr>
                             </thead>
@@ -54,6 +60,7 @@
     import InertiaPagination from "../../Shared/InertiaPagination";
     import ResponseMessage from "../../Shared/ResponseMessage";
     import InertiaSearch from "../../Shared/InertiaSearch";
+    import InertiaSortFilter from "../../Shared/InertiaSortFilter";
 
     export default {
         props: {
@@ -63,11 +70,20 @@
             PageLayout,
             InertiaPagination,
             ResponseMessage,
-            InertiaSearch
+            InertiaSearch,
+            InertiaSortFilter
         },
         data() {
           return {
-
+              sortFilter: {
+                  filters: {
+                      name: '',
+                  },
+                  sort: {
+                      attribute: 'id',
+                      direction: 'asc'
+                  }
+              }
           }
         },
         layout: Layout,
