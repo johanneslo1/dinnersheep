@@ -81,6 +81,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -124,6 +131,15 @@ __webpack_require__.r(__webpack_exports__);
         _this.form.isLoading = false;
       });
     }
+  },
+  computed: {
+    total: function total() {
+      var total = _.sumBy(this.form.data.meals, function (item) {
+        return Number(item.price);
+      });
+
+      return Math.round(total * 1000) / 1000;
+    }
   }
 });
 
@@ -139,6 +155,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AutocompleteModelSearch__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AutocompleteModelSearch */ "./resources/js/Shared/Form/Autocompletes/AutocompleteModelSearch.vue");
+//
 //
 //
 //
@@ -195,7 +212,6 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit(result) {
       var _this = this;
 
-      console.log("asd");
       var el = this.selectedValues.find(function (element) {
         return element[_this.primaryKey] === result[_this.primaryKey];
       });
@@ -462,6 +478,25 @@ var render = function() {
                                     )
                                   }
                                 },
+                                scopedSlots: _vm._u([
+                                  {
+                                    key: "table_end",
+                                    fn: function() {
+                                      return [
+                                        _c("tr", [
+                                          _c("td", [_vm._v("Insgesamt:")]),
+                                          _vm._v(" "),
+                                          _c("td", [
+                                            _vm._v(
+                                              _vm._s(_vm._f("money")(_vm.total))
+                                            )
+                                          ])
+                                        ])
+                                      ]
+                                    },
+                                    proxy: true
+                                  }
+                                ]),
                                 model: {
                                   value: _vm.form.data.meals,
                                   callback: function($$v) {
@@ -595,27 +630,31 @@ var render = function() {
         _c("table", { staticClass: "table" }, [
           _c(
             "tbody",
-            _vm._l(_vm.selectedValues, function(item, index) {
-              return _c("tr", [
-                _c("td", [_vm._v(_vm._s(_vm.resultValueCallback(item)))]),
-                _vm._v(" "),
-                _c("td", { staticClass: "text-right" }, [
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-xs btn-danger",
-                      on: {
-                        click: function($event) {
-                          return _vm.removeItem(index)
+            [
+              _vm._l(_vm.selectedValues, function(item, index) {
+                return _c("tr", [
+                  _c("td", [_vm._v(_vm._s(_vm.resultValueCallback(item)))]),
+                  _vm._v(" "),
+                  _c("td", { staticClass: "text-right" }, [
+                    _c(
+                      "button",
+                      {
+                        staticClass: "btn btn-xs btn-danger",
+                        on: {
+                          click: function($event) {
+                            return _vm.removeItem(index)
+                          }
                         }
-                      }
-                    },
-                    [_c("i", { staticClass: "mdi mdi-minus" })]
-                  )
+                      },
+                      [_c("i", { staticClass: "mdi mdi-minus" })]
+                    )
+                  ])
                 ])
-              ])
-            }),
-            0
+              }),
+              _vm._v(" "),
+              _vm._t("table_end")
+            ],
+            2
           )
         ])
       ])

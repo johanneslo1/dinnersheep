@@ -30,7 +30,14 @@
                                 <div class="col-md-9">
                                     <AutocompleteModelMultiselect v-model="form.data.meals" id="meals"
                                                              :model="`restaurants/${form.data.restaurant_id}/meals`" primary-key="id"
-                                                             :resultValueCallback="(res) => `${res.name} für ${res.price_formated}`"/>
+                                                                  :resultValueCallback="(res) => `${res.name} für ${res.price_formated}`">
+                                        <template #table_end>
+                                            <tr>
+                                                <td>Insgesamt:</td>
+                                                <td>{{ total | money }}</td>
+                                            </tr>
+                                        </template>
+                                    </AutocompleteModelMultiselect>
                                 </div>
                             </div>
 
@@ -106,6 +113,15 @@
                     this.form.isLoading = false;
                 });
             },
+        },
+        computed: {
+            total() {
+                let total = _.sumBy(this.form.data.meals, (item) => {
+                    return Number(item.price);
+                });
+
+                return Math.round(total * 1000) / 1000;
+            }
         }
     }
 </script>

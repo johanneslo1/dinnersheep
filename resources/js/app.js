@@ -13,6 +13,11 @@ Vue.use(require('vue-moment'));
 
 const app = document.getElementById('app')
 
+Vue.filter('money', function (value) {
+    let val = (value/1).toFixed(2).replace('.', ',')
+    return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + '€';
+})
+
 new Vue({
     render: h => h(InertiaApp, {
         props: {

@@ -17,6 +17,7 @@
                         </button>
                     </td>
                 </tr>
+                <slot name="table_end"></slot>
                 </tbody>
             </table>
         </div>
@@ -56,7 +57,7 @@
                 this.selectedValues.splice(index, 1);
             },
             submit(result) {
-                console.log("asd");
+
                 let el = this.selectedValues.find(element => element[this.primaryKey] === result[this.primaryKey]);
 
                 if (el) {

@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "dist/js/" + ({"vendors~canvg":"vendors~canvg","vendors~pdfmake":"vendors~pdfmake","vendors~xlsx":"vendors~xlsx","xlsx":"xlsx"}[chunkId]||chunkId) + ".js?id=" + {"0":"6e5285e58acba233ab50","2":"97f40e14485fc5ba0157","3":"628deb80b56054be899d","5":"125e44c3ce658de1cb9f","6":"eca186999602447aca73","7":"8d071b4f969aa4328e9d","8":"510b28e79e48b35bc568","9":"d89de70b7e365941e453","10":"90a44b9c5df1c3bd4faa","11":"48ae9f11728155d7ab69","12":"fb5e3c019ef4d3e9b2cf","13":"33a49437ee6d49889ba7","16":"3a5efafa7cd6da3daf1b","17":"ecd183efe5129fcfba02","20":"7cf351581eed33a4dde7","vendors~canvg":"99d56724a9ac28d924fd","vendors~pdfmake":"460a83d2d3832e6ac376","vendors~xlsx":"d811c31b45a95dacd539","xlsx":"d60bcc49d9ee1c23de25"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "dist/js/" + ({"vendors~canvg":"vendors~canvg","vendors~pdfmake":"vendors~pdfmake","vendors~xlsx":"vendors~xlsx","xlsx":"xlsx"}[chunkId]||chunkId) + ".js?id=" + {"0":"6e5285e58acba233ab50","2":"97f40e14485fc5ba0157","3":"628deb80b56054be899d","5":"125e44c3ce658de1cb9f","6":"eca186999602447aca73","7":"8d071b4f969aa4328e9d","8":"510b28e79e48b35bc568","9":"d89de70b7e365941e453","10":"90a44b9c5df1c3bd4faa","11":"48ae9f11728155d7ab69","12":"3a9a37e5687b4fa9bcb1","13":"33a49437ee6d49889ba7","16":"3a5efafa7cd6da3daf1b","17":"ecd183efe5129fcfba02","20":"7cf351581eed33a4dde7","vendors~canvg":"99d56724a9ac28d924fd","vendors~pdfmake":"460a83d2d3832e6ac376","vendors~xlsx":"d811c31b45a95dacd539","xlsx":"d60bcc49d9ee1c23de25"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -53523,6 +53523,10 @@ vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(_trevoreyre_autocomplete_vue__WE
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].component('pagination', __webpack_require__(/*! laravel-vue-pagination */ "./node_modules/laravel-vue-pagination/dist/laravel-vue-pagination.common.js"));
 vue__WEBPACK_IMPORTED_MODULE_1__["default"].use(__webpack_require__(/*! vue-moment */ "./node_modules/vue-moment/dist/vue-moment.js"));
 var app = document.getElementById('app');
+vue__WEBPACK_IMPORTED_MODULE_1__["default"].filter('money', function (value) {
+  var val = (value / 1).toFixed(2).replace('.', ',');
+  return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + '€';
+});
 new vue__WEBPACK_IMPORTED_MODULE_1__["default"]({
   render: function render(h) {
     return h(_inertiajs_inertia_vue__WEBPACK_IMPORTED_MODULE_0__["InertiaApp"], {

@@ -17,7 +17,7 @@ final class SearchRestaurantMealsApiController extends Controller
 
         return MealPresetner::collection(
             $restaurant->meals()->where('name', 'like', '%' . $search . '%')->get()
-        )->only('id', 'name', 'price_formated');
+        )->only('id', 'name', 'price', 'price_formated');
     }
 
 }
