@@ -31,7 +31,7 @@
                                     <AutocompleteModelMultiselect v-model="form.data.meals" id="meals"
                                                              :model="`restaurants/${form.data.restaurant_id}/meals`" primary-key="id"
                                                                   :resultValueCallback="(res) => `${res.name} für ${res.price_formated}`">
-                                        <template #table_end>
+                                        <template v-if="total > 0" #table_end>
                                             <tr>
                                                 <td>Insgesamt:</td>
                                                 <td>{{ total | money }}</td>
