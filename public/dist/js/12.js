@@ -163,6 +163,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -596,22 +597,20 @@ var render = function() {
             "tbody",
             _vm._l(_vm.selectedValues, function(item, index) {
               return _c("tr", [
-                _c("th", { attrs: { scope: "row" } }, [
-                  _vm._v(_vm._s(_vm.resultValueCallback(item)))
-                ]),
+                _c("td", [_vm._v(_vm._s(_vm.resultValueCallback(item)))]),
                 _vm._v(" "),
                 _c("td", { staticClass: "text-right" }, [
                   _c(
                     "button",
                     {
-                      staticClass: "btn btn-xs btn-danger-rgba",
+                      staticClass: "btn btn-xs btn-danger",
                       on: {
                         click: function($event) {
                           return _vm.removeItem(index)
                         }
                       }
                     },
-                    [_c("i", { staticClass: "feather icon-minus" })]
+                    [_c("i", { staticClass: "mdi mdi-minus" })]
                   )
                 ])
               ])

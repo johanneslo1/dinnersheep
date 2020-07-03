@@ -10,10 +10,11 @@
             <table class="table">
                 <tbody>
                 <tr v-for="(item, index) in selectedValues">
-                    <th scope="row">{{ resultValueCallback(item) }}</th>
+                    <td>{{ resultValueCallback(item) }}</td>
                     <td class="text-right">
-                        <button @click="removeItem(index)" class="btn btn-xs btn-danger-rgba"><i
-                            class="feather icon-minus"></i></button>
+                        <button @click="removeItem(index)" class="btn btn-xs btn-danger">
+                            <i class="mdi mdi-minus"></i>
+                        </button>
                     </td>
                 </tr>
                 </tbody>
