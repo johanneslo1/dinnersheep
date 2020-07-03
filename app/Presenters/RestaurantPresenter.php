@@ -12,7 +12,7 @@ class RestaurantPresenter extends FlexiblePresenter
             'id' => $this->resource->id,
             'name' => $this->resource->name,
             'address' => function () {
-                return $this->resource->address;
+                return AddressPresenter::make($this->resource->address);
             },
             'visits' => function () {
                 return 1;

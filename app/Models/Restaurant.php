@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
 
 class Restaurant extends Model
 {
-    use Sortable;
+    use Sortable, Filterable;
 
     protected $guarded = [];
 

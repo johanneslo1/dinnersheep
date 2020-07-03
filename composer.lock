@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f1b1e3c436f0010fed0f77ec58b05c93",
+    "content-hash": "be8d683e86cc31482b1e11559d8db703",
     "packages": [
         {
             "name": "additionapps/flexible-presenter",
@@ -1412,16 +1412,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "2.35.0",
+            "version": "2.36.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "4b9bd835261ef23d36397a46a76b496a458305e5"
+                "reference": "d0b65958d9942fd1b501fdb0800c67e8323aa08d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/4b9bd835261ef23d36397a46a76b496a458305e5",
-                "reference": "4b9bd835261ef23d36397a46a76b496a458305e5",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/d0b65958d9942fd1b501fdb0800c67e8323aa08d",
+                "reference": "d0b65958d9942fd1b501fdb0800c67e8323aa08d",
                 "shasum": ""
             },
             "require": {
@@ -1433,9 +1433,10 @@
             "require-dev": {
                 "doctrine/orm": "^2.7",
                 "friendsofphp/php-cs-fixer": "^2.14 || ^3.0",
-                "kylekatarnls/multi-tester": "^1.1",
+                "kylekatarnls/multi-tester": "^2.0",
                 "phpmd/phpmd": "^2.8",
-                "phpstan/phpstan": "^0.11",
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12.30",
                 "phpunit/phpunit": "^7.5 || ^8.0",
                 "squizlabs/php_codesniffer": "^3.4"
             },
@@ -1451,6 +1452,11 @@
                 "laravel": {
                     "providers": [
                         "Carbon\\Laravel\\ServiceProvider"
+                    ]
+                },
+                "phpstan": {
+                    "includes": [
+                        "extension.neon"
                     ]
                 }
             },
@@ -1481,20 +1487,20 @@
                 "datetime",
                 "time"
             ],
-            "time": "2020-05-24T18:27:52+00:00"
+            "time": "2020-06-25T20:20:01+00:00"
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.5.0",
+            "version": "v4.6.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463"
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/53c2753d756f5adb586dca79c2ec0e2654dd9463",
-                "reference": "53c2753d756f5adb586dca79c2ec0e2654dd9463",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/c346bbfafe2ff60680258b631afb730d186ed864",
+                "reference": "c346bbfafe2ff60680258b631afb730d186ed864",
                 "shasum": ""
             },
             "require": {
@@ -1533,7 +1539,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-06-03T07:24:19+00:00"
+            "time": "2020-07-02T17:12:47+00:00"
         },
         {
             "name": "opis/closure",
@@ -3931,16 +3937,16 @@
         },
         {
             "name": "tucker-eric/eloquentfilter",
-            "version": "2.3.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Tucker-Eric/EloquentFilter.git",
-                "reference": "1bf140acfa05653e3531469d149b38ad2a672460"
+                "url": "https://github.com/johanneslo1/EloquentFilter.git",
+                "reference": "3653042270b42943851b3c0f2a4948e736b9abbd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Tucker-Eric/EloquentFilter/zipball/1bf140acfa05653e3531469d149b38ad2a672460",
-                "reference": "1bf140acfa05653e3531469d149b38ad2a672460",
+                "url": "https://api.github.com/repos/johanneslo1/EloquentFilter/zipball/3653042270b42943851b3c0f2a4948e736b9abbd",
+                "reference": "3653042270b42943851b3c0f2a4948e736b9abbd",
                 "shasum": ""
             },
             "require": {
@@ -3969,7 +3975,11 @@
                     "EloquentFilter\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "EloquentFilter\\TestClass\\": "tests/classes"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -3988,7 +3998,10 @@
                 "query",
                 "search"
             ],
-            "time": "2020-03-03T22:30:29+00:00"
+            "support": {
+                "source": "https://github.com/johanneslo1/EloquentFilter/tree/master"
+            },
+            "time": "2020-06-25T10:41:26+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -6283,7 +6296,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "tucker-eric/eloquentfilter": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

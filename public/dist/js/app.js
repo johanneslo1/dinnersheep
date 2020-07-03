@@ -43,7 +43,7 @@
 /******/
 /******/ 	// script path function
 /******/ 	function jsonpScriptSrc(chunkId) {
-/******/ 		return __webpack_require__.p + "dist/js/" + ({"vendors~canvg":"vendors~canvg","vendors~pdfmake":"vendors~pdfmake","vendors~xlsx":"vendors~xlsx","xlsx":"xlsx"}[chunkId]||chunkId) + ".js?id=" + {"0":"f8fbf754c0179f2595a4","1":"b5fe979af341434a6920","2":"b7ee04dbcb4797a114b1","3":"e96e9195e9a85ca27547","4":"09ed6f95a92be83fbad3","5":"125e44c3ce658de1cb9f","6":"eca186999602447aca73","7":"1a15ac1375a3642ff6dd","vendors~canvg":"99d56724a9ac28d924fd","vendors~pdfmake":"460a83d2d3832e6ac376","vendors~xlsx":"d811c31b45a95dacd539","xlsx":"d60bcc49d9ee1c23de25"}[chunkId] + ""
+/******/ 		return __webpack_require__.p + "dist/js/" + ({"vendors~canvg":"vendors~canvg","vendors~pdfmake":"vendors~pdfmake","vendors~xlsx":"vendors~xlsx","xlsx":"xlsx"}[chunkId]||chunkId) + ".js?id=" + {"0":"6e5285e58acba233ab50","1":"b5fe979af341434a6920","2":"b7ee04dbcb4797a114b1","3":"15f1ed88558ea139d763","4":"be8677e16396cd841d3e","5":"125e44c3ce658de1cb9f","6":"eca186999602447aca73","7":"1a15ac1375a3642ff6dd","8":"e6002bda5024db8b5586","9":"9eaaa49b307d8b050a6a","10":"050710a108835174d624","11":"2cf38a0da14fd7ca637c","vendors~canvg":"99d56724a9ac28d924fd","vendors~pdfmake":"460a83d2d3832e6ac376","vendors~xlsx":"d811c31b45a95dacd539","xlsx":"d60bcc49d9ee1c23de25"}[chunkId] + ""
 /******/ 	}
 /******/
 /******/ 	// The require function
@@ -48545,33 +48545,69 @@ var map = {
 		2,
 		7
 	],
+	"./Meals/Create": [
+		"./resources/js/Pages/Meals/Create.vue",
+		1,
+		0,
+		2,
+		3,
+		8
+	],
+	"./Meals/Create.vue": [
+		"./resources/js/Pages/Meals/Create.vue",
+		1,
+		0,
+		2,
+		3,
+		8
+	],
+	"./Meals/Index": [
+		"./resources/js/Pages/Meals/Index.vue",
+		1,
+		0,
+		2,
+		4,
+		9
+	],
+	"./Meals/Index.vue": [
+		"./resources/js/Pages/Meals/Index.vue",
+		1,
+		0,
+		2,
+		4,
+		9
+	],
 	"./Restaurants/Create": [
 		"./resources/js/Pages/Restaurants/Create.vue",
 		1,
 		0,
 		2,
-		3
+		3,
+		11
 	],
 	"./Restaurants/Create.vue": [
 		"./resources/js/Pages/Restaurants/Create.vue",
 		1,
 		0,
 		2,
-		3
+		3,
+		11
 	],
 	"./Restaurants/Index": [
 		"./resources/js/Pages/Restaurants/Index.vue",
 		1,
 		0,
 		2,
-		4
+		4,
+		10
 	],
 	"./Restaurants/Index.vue": [
 		"./resources/js/Pages/Restaurants/Index.vue",
 		1,
 		0,
 		2,
-		4
+		4,
+		10
 	],
 	"./Users/Edit": [
 		"./resources/js/Pages/Users/Edit.vue",

@@ -6,6 +6,12 @@
         "framework",
         "laravel"
     ],
+    "repositories": [
+        {
+            "url": "https://github.com/johanneslo1/EloquentFilter",
+            "type": "vcs"
+        }
+    ],
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
@@ -19,7 +25,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.1",
-        "tucker-eric/eloquentfilter": "^2.3"
+        "tucker-eric/eloquentfilter": "dev-master"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.3",

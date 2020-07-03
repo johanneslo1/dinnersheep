@@ -11027,6 +11027,12 @@ footer p {
   padding-top: 5rem;
 }
 
+.autocomplete-input {
+  padding: 0.375rem 0.75rem;
+  background-image: none;
+  border-radius: 0.25rem;
+}
+
 @media (min-width: 768px) {
   footer .brand {
     float: left;

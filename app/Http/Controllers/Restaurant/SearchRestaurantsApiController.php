@@ -16,6 +16,6 @@ final class SearchRestaurantsApiController extends Controller
 
         return RestaurantPresenter::collection(
             Restaurant::where('name', 'like', '%' . $search . '%')->get()
-        )->only('id', 'name');
+        )->only('id', 'name', 'address');
     }
 }

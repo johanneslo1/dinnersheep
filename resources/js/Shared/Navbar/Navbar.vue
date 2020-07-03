@@ -20,7 +20,7 @@
                       <navbar-link href="#">Besuchergruppe</navbar-link>
                   </li>
                   <li class="nav-item">
-                      <navbar-link href="#">Lieblingsgerichte</navbar-link>
+                      <navbar-link href="/meals">Gerichte</navbar-link>
                   </li>
               </ul>
               <ul class="navbar-nav">

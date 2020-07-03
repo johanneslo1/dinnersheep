@@ -16,10 +16,11 @@ class CreateMealsTable extends Migration
         Schema::create('meals', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('shorthand');
+            $table->string('shorthand')->nullable();
             $table->unsignedBigInteger('restaurant_id');
-            $table->unsignedBigInteger('category_id');
-            $table->decimal('price', 8);
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->decimal('price', 8, 2);
+            $table->text('note')->nullable();
             $table->timestamps();
         });
     }

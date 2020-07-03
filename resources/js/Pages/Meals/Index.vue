@@ -1,13 +1,13 @@
 <template>
-    <PageLayout title="Restaurants">
+    <PageLayout title="Gerichte">
         <template #action>
-           <div class="d-flex align-items-center">
-               <InertiaSearch />
+            <div class="d-flex align-items-center">
+                <InertiaSearch />
 
-               <inertia-link class="btn btn-primary ml-3" href="/restaurants/create">
-                   <i class="mdi mdi-plus"></i> Restaurant erstellen
-               </inertia-link>
-           </div>
+                <inertia-link class="btn btn-primary ml-3" href="/meals/create">
+                    <i class="mdi mdi-plus"></i> Gericht erstellen
+                </inertia-link>
+            </div>
         </template>
         <template #body>
             <div class="col-md-12">
@@ -21,24 +21,26 @@
                                     <InertiaSortFilter :sortFilter="sortFilter" sort-name="name" filter-name="name" placeholder="Name" input-type="text"   />
                                 </th>
                                 <th>
-                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="favorite_meal" filter-name="favorite_meal" placeholder="Lieblingsgericht" input-type="text"   />
+                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="is_favorite" filter-name="is_favorite" placeholder="Lieblingsgericht?" input-type="select"   />
                                 </th>
+
                                 <th>
-                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="visits" filter-name="visits" placeholder="Besuche" input-type="text"   />
+                                    <InertiaSortFilter :sortFilter="sortFilter" sort-name="note" filter-name="note" placeholder="Notiz" input-type="text"   />
                                 </th>
                                 <th>Aktionen</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="restaurant in restaurantsPagination.data">
+                            <tr v-for="meal in mealsPagination.data">
                                 <td>
-                                    {{ restaurant.name }}
+                                    {{ meal.name }}
                                 </td>
                                 <td>
-                                    {{ restaurant.favorite_meal ? restaurant.favorite_meal.name : '' }}
+                                    {{ meal.is_favorite }}
                                 </td>
+
                                 <td>
-                                    {{ restaurant.visits }}
+                    {{ meal.note }}
                                 </td>
                                 <td>
 
@@ -46,7 +48,7 @@
                             </tr>
                             </tbody>
                         </table>
-                        <InertiaPagination :data="restaurantsPagination"></InertiaPagination>
+                        <InertiaPagination :data="mealsPagination"></InertiaPagination>
                     </div>
                 </div>
             </div>
@@ -64,7 +66,7 @@
 
     export default {
         props: {
-            restaurantsPagination: null,
+            mealsPagination: null,
         },
         components: {
             PageLayout,
@@ -74,28 +76,26 @@
             InertiaSortFilter
         },
         data() {
-          return {
-              sortFilter: {
-                  filters: {
-                      name: '',
-                  },
-                  sort: {
-                      attribute: 'id',
-                      direction: 'asc'
-                  }
-              }
-          }
+            return {
+                sortFilter: {
+                    filters: {
+                        name: '',
+                        restaurant: '',
+                        note: ''
+                    },
+                    sort: {
+                        attribute: 'id',
+                        direction: 'asc'
+                    }
+                }
+            }
         },
         layout: Layout,
         methods: {
 
-            submit() {
-
-            },
         }
     }
 </script>
 
 <style>
-
 </style>

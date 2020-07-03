@@ -320,8 +320,8 @@ var render = function() {
                   "li",
                   { staticClass: "nav-item" },
                   [
-                    _c("navbar-link", { attrs: { href: "#" } }, [
-                      _vm._v("Lieblingsgerichte")
+                    _c("navbar-link", { attrs: { href: "/meals" } }, [
+                      _vm._v("Gerichte")
                     ])
                   ],
                   1
