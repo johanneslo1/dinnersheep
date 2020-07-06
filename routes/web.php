@@ -13,6 +13,9 @@ use App\Http\Controllers\Restaurant\ShowRestaurantController;
 use App\Http\Controllers\Restaurant\StoreRestaurantController;
 use App\Http\Controllers\Restaurant\UpdateRestaurantController;
 use App\Http\Controllers\RestaurantVisit\CreateRestaurantVisitController;
+use App\Http\Controllers\RestaurantVisit\DeleteRestaurantVisitController;
+use App\Http\Controllers\RestaurantVisit\EditRestaurantVisitController;
+use App\Http\Controllers\RestaurantVisit\IndexRestaurantVisitsController;
 use App\Http\Controllers\RestaurantVisit\StoreRestaurantVisitController;
 use App\Http\Controllers\ShowHomeController;
 use Illuminate\Support\Facades\Auth;
@@ -52,11 +55,11 @@ Route::middleware(['throttle', 'auth'])
         Route::prefix('visits')
             ->name('visits.')
             ->group(function () {
-                Route::get('', IndexRestaurantsController::class)->name('index');
+                Route::get('', IndexRestaurantVisitsController::class)->name('index');
                 Route::get('create', CreateRestaurantVisitController::class);
-                Route::get('{restaurantVisit}/edit', EditRestaurantController::class);
+                Route::get('{restaurantVisit}/edit', EditRestaurantVisitController::class);
                 Route::post('', StoreRestaurantVisitController::class);
-                Route::patch('{restaurantVisit}', UpdateRestaurantController::class);
+                Route::delete('{restaurantVisit}', DeleteRestaurantVisitController::class);
 
             });
 

@@ -72,7 +72,7 @@
                                 </th>
                                 <th>
                                     <InertiaSortFilter :sortFilter="sortFilter" sort-name="visit_date"
-                                                       filter-name="date" placeholder="Datum"
+                                                       filter-name="visit_date" placeholder="Datum"
                                                        input-type="text"/>
                                 </th>
                             </tr>
@@ -85,7 +85,7 @@
                                     </inertia-link>
                                 </td>
                                 <td>
-                                    {{ $moment(visit.date).format('DD.MM.YYYY HH:mm') }}
+                                    {{ $moment(visit.visit_date).format('DD.MM.YYYY HH:mm') }}
                                 </td>
                             </tr>
                             </tbody>

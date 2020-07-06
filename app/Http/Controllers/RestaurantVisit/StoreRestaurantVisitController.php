@@ -27,7 +27,7 @@ final class StoreRestaurantVisitController extends Controller
                 if(!isset($meal['id']))
                     return;
 
-                DB::table('restaurant_visit_meal')->insert([
+                DB::table('meal_restaurant_visit')->insert([
                     'restaurant_visit_id' => $visit->id,
                     'meal_id' => $meal['id']
                 ]);

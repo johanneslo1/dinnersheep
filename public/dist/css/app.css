@@ -11037,6 +11037,10 @@ footer p {
   border-radius: 0.25rem;
 }
 
+.badge {
+  padding: 0.4em 0.6em;
+}
+
 @media (min-width: 768px) {
   footer .brand {
     float: left;

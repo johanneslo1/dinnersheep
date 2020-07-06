@@ -17,7 +17,13 @@ class RestaurantVisitPresenter extends FlexiblePresenter
             'restaurant' => function () {
                 return RestaurantPresenter::make($this->resource->restaurant);
             },
-            'date' => $this->resource->visit_date,
+            'costs' => function () {
+                return $this->resource->meals()->sum('price');
+            },
+            'meals' => function () {
+                return $this->resource->meals;
+            },
+            'visit_date' => $this->resource->visit_date,
         ];
     }
 }

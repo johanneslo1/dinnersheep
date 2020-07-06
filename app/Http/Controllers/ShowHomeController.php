@@ -4,31 +4,34 @@
 namespace App\Http\Controllers;
 
 
+use App\Helpers\Period;
+use App\Models\RestaurantVisit;
 use App\Repositories\StatisticsRepository;
+use App\Statistics\AverageSpending;
+use App\Statistics\VisitsPerWeekday;
 use Carbon\CarbonPeriod;
 use Inertia\Inertia;
 
 final class ShowHomeController extends Controller
 {
-    /**
-     * @var StatisticsRepository
-     */
-    private $statisticsRepository;
 
-    public function __construct(StatisticsRepository $statisticsRepository)
+
+    public function __invoke(VisitsPerWeekday $visitsPerWeekday, AverageSpending $averageSpending)
     {
+        $user = auth()->user();
 
-        $this->statisticsRepository = $statisticsRepository;
-    }
+        $carbonPeriod = CarbonPeriod::create(now()->subMonth(), now());
 
-
-    public function __invoke()
-    {
         return Inertia::render('Home', [
-            'visitsPerWeekday' => $this->statisticsRepository->getVisitsPerWeekday(
-                auth()->user(),
-                CarbonPeriod::create(now()->subMonth(), now())
-            )
+            'visitsPerWeekday' => $visitsPerWeekday->user($user)
+                ->carbonPeriod($carbonPeriod)
+                ->get(),
+            'monthlyAverageSpending' => $averageSpending->user($user)
+                ->carbonPeriod($carbonPeriod)
+                ->get(),
+            'monthlyVisitsCount' => RestaurantVisit::byUser($user)
+                ->byVisitDateBetween($carbonPeriod)
+                ->count(),
         ]);
     }
 }

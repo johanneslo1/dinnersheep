@@ -14,7 +14,15 @@ class MealPresetner extends FlexiblePresenter
             'shorthand' => $this->resource->shothand,
             'note' => $this->resource->note,
             'price' => $this->resource->price,
-            'price_formated' => number_format($this->resource->price, 2, ',', '.') . '€'
+            'is_favorite' => function () {
+                return $this->resource->users()
+                    ->where('id', auth()->id())
+                    ->first() !== null;
+            },
+            'price_formated' => number_format($this->resource->price, 2, ',', '.') . '€',
+            'restaurant' => function () {
+                return $this->resource->restaurant;
+            }
         ];
     }
 }

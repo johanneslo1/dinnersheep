@@ -14,7 +14,9 @@
                                                              model="restaurants" primary-key="id"
                                                              :resultValueCallback="(res) => `${res.name} - ${res.address ? res.address.city : ''}`"/>
                                     <small v-if="!form.data.restaurant_id" class="form-text text-muted">
-                                        Hast du noch kein Restaurant hinzugefügt? <inertia-link :href="`/restaurant/create`">Dann trag sie hier ein!</inertia-link>
+                                        Hast du noch kein Restaurant hinzugefügt?
+                                        <inertia-link :href="`/restaurant/create`">Dann trag sie hier ein!
+                                        </inertia-link>
                                     </small>
                                 </div>
                             </div>
@@ -23,7 +25,8 @@
                                 <label class="col-md-3 control-label" for="restaurant_id">Restaurant</label>
                                 <div class="col-md-9">
                                     <!-- TODO: Nutzer sollte trotzdem noch überlassen bleiben die auswahl zu ändern. Daher nicht einfach auf disabled sondern autocomplete vorausgefüllt. -->
-                                    <input :value="restaurant.name" id="restaurant_id" type="text" class="form-control"  disabled>
+                                    <input :value="restaurant.name" id="restaurant_id" type="text" class="form-control"
+                                           disabled>
                                 </div>
                             </div>
 
@@ -31,8 +34,10 @@
                             <div class="form-group row">
                                 <label class="col-md-3 control-label" for="meals">Verzehrte Gerichte</label>
                                 <div class="col-md-9">
-                                    <AutocompleteModelMultiselect v-model="form.data.meals" id="meals" :disabled="!form.data.restaurant_id"
-                                                             :model="`restaurants/${form.data.restaurant_id}/meals`" primary-key="id"
+                                    <AutocompleteModelMultiselect v-model="form.data.meals" id="meals"
+                                                                  :disabled="!form.data.restaurant_id"
+                                                                  :model="`restaurants/${form.data.restaurant_id}/meals`"
+                                                                  primary-key="id" :item-multiselect="true"
                                                                   :resultValueCallback="(res) => `${res.name} für ${res.price_formated}`">
                                         <template v-if="total > 0" #table_end>
                                             <tr>
@@ -42,7 +47,10 @@
                                         </template>
                                     </AutocompleteModelMultiselect>
                                     <small v-if="form.data.restaurant_id && total <= 0" class="form-text text-muted">
-                                        Hast du noch keine Gerichte hinzugefügt? <inertia-link :href="`/meals/create?restaurant=${form.data.restaurant_id}`">Dann trag sie hier ein!</inertia-link>
+                                        Hast du noch keine Gerichte hinzugefügt?
+                                        <inertia-link :href="`/meals/create?restaurant=${form.data.restaurant_id}`">Dann
+                                            trag sie hier ein!
+                                        </inertia-link>
                                     </small>
                                 </div>
                             </div>
@@ -101,7 +109,7 @@
             return {
                 form: {
                     data: {
-                        visit_date: this.$moment().format('YYYY-MM-DDTHH:mm:ss'),
+                        visit_date: this.$moment().format('YYYY-MM-DDTHH:mm'),
                         meals: [],
                         restaurant_id: this.restaurant ? this.restaurant.id : '',
                     },

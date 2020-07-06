@@ -309,8 +309,8 @@ var render = function() {
                   "li",
                   { staticClass: "nav-item" },
                   [
-                    _c("navbar-link", { attrs: { href: "#" } }, [
-                      _vm._v("Besuchergruppe")
+                    _c("navbar-link", { attrs: { href: "/visits" } }, [
+                      _vm._v("Besuche")
                     ])
                   ],
                   1

@@ -39,7 +39,7 @@ class User extends Authenticatable
 
     public function meals()
     {
-        return $this->belongsToMany(Meal::class);
+        return $this->belongsToMany(Meal::class, 'user_meal');
     }
 
     public function visits()

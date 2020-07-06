@@ -13,7 +13,7 @@ class RestaurantVisitMeal extends Migration
      */
     public function up()
     {
-        Schema::create('restaurant_visit_meal', function (Blueprint $table) {
+        Schema::create('meal_restaurant_visit', function (Blueprint $table) {
             $table->unsignedBigInteger('meal_id');
             $table->unsignedBigInteger('restaurant_visit_id');
         });
@@ -27,6 +27,6 @@ class RestaurantVisitMeal extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurant_visit_meal');
+        Schema::dropIfExists('meal_restaurant_visit');
     }
 }

@@ -17,7 +17,7 @@
                       <navbar-link href="/restaurants">Restaurants</navbar-link>
                   </li>
                   <li class="nav-item">
-                      <navbar-link href="#">Besuchergruppe</navbar-link>
+                      <navbar-link href="/visits">Besuche</navbar-link>
                   </li>
                   <li class="nav-item">
                       <navbar-link href="/meals">Gerichte</navbar-link>

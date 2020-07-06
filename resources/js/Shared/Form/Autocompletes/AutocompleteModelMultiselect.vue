@@ -29,17 +29,25 @@
 
     export default {
         props: {
+            //Name des Models. Wird genutzt um den richtigen API-Endpunkt anzusprechen.
             model: {
                 type: String,
-                default: 'Name des Models. Wird genutzt um den richtigen API-Endpunkt anzusprechen.'
+                default: 'model'
             },
             resultValueCallback: Function,
+            // Primary-Key des Models (wird zurückgegeben)
             primaryKey: {
                 type: String,
                 default: 'id',
             },
+            // Für v-model
             value: Array,
             disabled: {
+                default: false,
+                type: Boolean,
+            },
+            // Kann ein Item mehrmals ausgewählt werden?
+            itemMultiselect: {
                 default: false,
                 type: Boolean,
             }
@@ -62,14 +70,15 @@
             },
             submit(result) {
 
+                // Prüfe hier ob das Element bereits ausgewählt wurde, wenn itemMultiselect aktiv ist.
+
                 let el = this.selectedValues.find(element => element[this.primaryKey] === result[this.primaryKey]);
 
-                if (el) {
-                    // let index = this.selectedValues.indexOf(el);
-                    // this.removeItem(index);
+                if (!this.itemMultiselect && el) {
                     this.autocomplete_message = 'Der Eintrag wurde bereits ausgewählt!';
                 } else {
-                    this.selectedValues.push(result);
+
+                    this.selectedValues = this.selectedValues.push(result);
                     this.$emit('input', this.selectedValues);
                 }
             },
@@ -79,36 +88,4 @@
 </script>
 
 <style>
-    .autocomplete-input {
-        color: #8A98AC;
-        border: 1px solid #ced4da;
-        display: block;
-        width: 100%;
-        height: calc(1.5em + .75rem + 2px);
-        font-size: 1rem;
-        font-weight: 400;
-        line-height: 1.5;
-        padding: .375rem .75rem;
-        background-color: #fff;
-        background-clip: padding-box;
-        border-radius: .25rem;
-        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-        background-image: none;
-    }
-
-    .autocomplete-result {
-        padding: 12px;
-        background: none;
-    }
-    [data-position=below] .autocomplete-result-list {
-        border-top-color: transparent;
-        border-radius: .25rem;
-        padding-bottom: 0px;
-        text-align: left;
-    }
-
-    .autocomplete-input:focus, .autocomplete-input[aria-expanded=true] {
-        box-shadow: none;
-        border-color: #007bff;
-    }
 </style>

@@ -41,7 +41,12 @@
                                     {{ meal.name }}
                                 </td>
                                 <td>
-                                    {{ meal.is_favorite }}
+                                    <span v-if="meal.is_favorite" class="badge badge-success">
+                                        <i class="mdi mdi-check"></i> Ja
+                                    </span>
+                                    <span v-else class="badge badge-secondary">
+                                        <i class="mdi mdi-times"></i> Nein
+                                    </span>
                                 </td>
 
                                 <td>

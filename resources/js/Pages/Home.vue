@@ -5,44 +5,27 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        Deine Statistik
+                        Deine Besuchsstatistik
                     </div>
                     <div class="card-body">
-                        <VisitsPerWeekday :visitsPerWeekday="visitsPerWeekday" />
+                        <VisitsPerWeekday :visitsPerWeekday="visitsPerWeekday"/>
                     </div>
                 </div>
 
                 <div class="card mt-3">
                     <div class="card-header">
-                        Dein Lieblingsrestaurant
+                        Deinen Ausgabenstatistik
                     </div>
                     <div class="card-body">
-                        <p>Dein Lieblingsrestaurant ist derzeit Sultan.</p>
-                    </div>
-                </div>
-
-                <div class="card mt-3">
-                    <div class="card-header">
-                        Dein Lieblingsgericht
-                    </div>
-                    <div class="card-body">
-                        <p>Dein Lieblingsrestaurant ist derzeit Sultan.</p>
-                    </div>
-                </div>
-
-                <div class="card mt-3">
-                    <div class="card-header">
-                        Dein Lieblingsgericht
-                    </div>
-                    <div class="card-body">
-                        <p>Dein Lieblingsrestaurant ist derzeit Sultan.</p>
+                        <p>In den letzten 30 Tagen hast du bei {{ monthlyVisitsCount }} Besuchen im Schnitt {{
+                            monthlyAverageSpending | money }} ausgegeben.</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
-                <AddRestaurantVisit />
-                <AddFavouriteMeal class="mt-3" />
-                <AddVisitorGroup class="mt-3" />
+                <AddRestaurantVisit/>
+                <AddFavouriteMeal class="mt-3"/>
+                <AddVisitorGroup class="mt-3"/>
             </div>
         </template>
     </PageLayout>
@@ -58,7 +41,18 @@
 
     export default {
         props: {
-            visitsPerWeekday: null
+            visitsPerWeekday: {
+                default: [],
+                type: Array,
+            },
+            monthlyAverageSpending: {
+                default: 0,
+                type: Number,
+            },
+            monthlyVisitsCount: {
+                default: 0,
+                type: Number,
+            }
         },
         layout: Layout,
         components: {
@@ -66,7 +60,7 @@
             AddFavouriteMeal,
             AddVisitorGroup,
             VisitsPerWeekday,
-            PageLayout
+            PageLayout,
         }
     }
 </script>
