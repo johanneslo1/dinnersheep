@@ -17,5 +17,7 @@
 </script>
 
 <style scoped>
-
+    footer {
+        margin-bottom: 0 !important;
+    }
 </style>

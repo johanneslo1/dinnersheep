@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="layout-wrapper">
         <Navbar/>
         <slot></slot>
         <Footer />
@@ -19,5 +19,10 @@
 </script>
 
 <style scoped>
-
+.layout-wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    min-height: 100vh;
+}
 </style>

@@ -44,6 +44,9 @@
                 width: 100%;
                 height: 2px;
             }
+            body  {
+               background-color: #f6f6f6;
+            }
         </style>
 
     </head>

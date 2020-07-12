@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3">
+    <nav class="navbar navbar-expand-lg navbar-light pt-3 pb-3 bg-white">
       <div class="container">
           <inertia-link class="navbar-brand font-weight-bold" href="/">
               <span class="text-primary">dinner.</span>sheep
